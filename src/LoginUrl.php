@@ -47,14 +47,25 @@ class LoginUrl
 
     public function generate()
     {
+        $data = [
+            'uid'         => $this->user->getAuthIdentifier(),
+            'redirect_to' => $this->redirect_url,
+            'user_type'   => UserClass::toSlug(get_class($this->user)),
+        ];
+
+        if(!config('laravel-passwordless-login.absolute_url')){
+			return url(URL::temporarySignedRoute(
+				$this->route_name,
+				$this->route_expires,
+				$data, 
+                false
+			));
+		}
+
         return URL::temporarySignedRoute(
             $this->route_name,
             $this->route_expires,
-            [
-                'uid'           => $this->user->getAuthIdentifier(),
-                'redirect_to'   => $this->redirect_url,
-                'user_type'     => UserClass::toSlug(get_class($this->user)),
-            ]
+            $data
         );
     }
 }

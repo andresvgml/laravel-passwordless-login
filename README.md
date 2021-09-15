@@ -1,6 +1,5 @@
 # Laravel Passwordless Login
 ### A simple, safe magic login link generator for Laravel
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/grosv/laravel-passwordless-login.svg?style=flat-square)](https://packagist.org/packages/grosv/laravel-passwordless-login)
 [![StyleCI](https://github.styleci.io/repos/243858945/shield?branch=master)](https://github.styleci.io/repos/243858945)
 ![Build Status](https://app.chipperci.com/projects/8c76f67e-e513-46a3-ad7a-aecb136dfa05/status/master)
 
@@ -8,7 +7,7 @@ This package provides a temporary signed route that logs in a user. What it does
 
 ### Installation
 ```shell script
-composer require grosv/laravel-passwordless-login
+composer require andresvgml/laravel-passwordless-login
 ```
 
 ### Simple Usage
@@ -80,7 +79,7 @@ LPL_USER_GUARD=web
 LPL_USE_ONCE=false
 LPL_INVALID_SIGNATURE_MESSAGE="Expired or Invalid Link"
 ```
-`LPL_USER_MODEL` is the the authenticatable model you are logging in (usually App\User)
+`LPL_USER_MODEL` is the authenticatable model you are logging in (usually App\User)
 
 `LPL_REMEMBER_LOGIN` is whether you want to remember the login (like the user checking Remember Me)
 
@@ -96,9 +95,11 @@ LPL_INVALID_SIGNATURE_MESSAGE="Expired or Invalid Link"
 
 `LPL_INVALID_SIGNATURE_MESSAGE` is a custom message sent when we abort with a 401 status on an invalid or expired link. You can also add some custom logic on how to deal with invalid or expired links by handling `InvalidSignatureException` and `ExpiredSignatureException` in your `Handler.php` file. 
 
+`LPL_ABSOLUTE_URL` is the parametrer to determine if the APP_URL is a absolute route, applies to  url's with subfolder
+
 ### Reporting Issues
 
-For security issues, please email me directly at ed@gros.co. For any other problems, use the issue tracker here.
+For security issues, please email me directly at andresv@gmlsoftware.com. For any other problems, use the issue tracker here.
 
 ### Contributing
 
